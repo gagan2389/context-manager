@@ -22,17 +22,25 @@ That's a **92% token reduction** — faster responses, lower cost, less context 
 
 ## What's Inside
 
-| Feature | Command | What it does |
+| Command | Usage | What it does |
 |---|---|---|
-| **Ignore List** | `/ignore init` | Never read node_modules, dist, .env, etc. |
-| **File Pin** | `/filecontext auth.ts` | Only look at one specific file |
-| **Topic Scope** | `/topiccontext create Project-1-Name` | Map your feature areas to files |
-| **Activate Scope** | `/usetopiccontext Project-1-Name` | Restrict Claude to only Project-1-Name files |
-| **Project Map** | `/projectcontext` | See full project tree with topics |
-| **Token Status** | `/tokenstatus` | Live token usage + savings bar |
-| **Remember Facts** | `/remember <fact>` | Persist a fact to CLAUDE.md |
-| **Task Scope** | `/scope <task>` | Lock Claude to a specific task |
-| **Clear All** | `/clearcontext` | Remove all active restrictions |
+| `/tokenstatus` | `/tokenstatus` | Shows live token usage, savings, and remaining budget |
+| `/ignore-init` | `/ignore-init` | Creates .claudeignore with smart defaults — skips node_modules, dist, .env, lock files, media |
+| `/ignore-add` | `/ignore-add *.log` | Adds a file or glob pattern to .claudeignore |
+| `/ignore-remove` | `/ignore-remove *.log` | Removes a pattern from .claudeignore |
+| `/ignore-list` | `/ignore-list` | Shows all current patterns in .claudeignore |
+| `/filecontext` | `/filecontext src/auth/login.ts` | Pins Claude to one file only — won't read anything else |
+| `/filecontext-clear` | `/filecontext-clear` | Removes the file pin |
+| `/topiccontext-create` | `/topiccontext-create inventory` | Interactively maps a feature area to its files |
+| `/topiccontext-list` | `/topiccontext-list` | Lists all saved topic scopes with file counts |
+| `/topiccontext-show` | `/topiccontext-show inventory` | Shows exactly which files are in a topic |
+| `/topiccontext-delete` | `/topiccontext-delete inventory` | Deletes a saved topic |
+| `/usetopiccontext` | `/usetopiccontext inventory` | Restricts Claude to only that topic's files for this session |
+| `/usetopiccontext off` | `/usetopiccontext off` | Removes topic restriction |
+| `/projectcontext` | `/projectcontext` | Shows full project tree grouped by all topics |
+| `/clearcontext` | `/clearcontext` | Resets all active restrictions (file pin + topic scope) |
+| `/remember` | `/remember Always run pnpm test before committing` | Saves a fact to CLAUDE.md — Claude knows it every future session |
+| `/scope` | `/scope Fix the login timeout bug` | Locks Claude to one task — won't drift into unrelated changes |
 
 ---
 
