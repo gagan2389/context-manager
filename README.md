@@ -73,7 +73,7 @@ Done. The skill is now installed globally and works in every Claude Code project
 ### Option B — Clone with Git
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/context-manager.git
+git clone https://github.com/gagan2389/context-manager.git
 cd context-manager
 chmod +x install.sh
 ./install.sh

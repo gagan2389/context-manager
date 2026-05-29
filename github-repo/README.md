@@ -53,7 +53,7 @@ Claude Code reads your project files to understand context. In a large project t
 **Step 1** — Download or clone this repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/context-manager.git
+git clone https://github.com/gagan2389/context-manager.git
 cd context-manager
 ```
 
