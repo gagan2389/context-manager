@@ -159,7 +159,7 @@ def main():
     print(f"   Project root: {project_root}\n")
 
     # Gather description
-    description = input(f"Short description for '{topic_name}' (e.g. 'HOTO handover flow'): ").strip()
+    description = input(f"Short description for '{topic_name}' (e.g. 'Project-1-Name handover flow'): ").strip()
     if not description:
         description = f"{topic_name} context"
 

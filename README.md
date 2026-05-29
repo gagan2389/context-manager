@@ -26,8 +26,8 @@ That's a **92% token reduction** — faster responses, lower cost, less context 
 |---|---|---|
 | **Ignore List** | `/ignore init` | Never read node_modules, dist, .env, etc. |
 | **File Pin** | `/filecontext auth.ts` | Only look at one specific file |
-| **Topic Scope** | `/topiccontext create hoto` | Map your feature areas to files |
-| **Activate Scope** | `/usetopiccontext hoto` | Restrict Claude to only hoto files |
+| **Topic Scope** | `/topiccontext create Project-1-Name` | Map your feature areas to files |
+| **Activate Scope** | `/usetopiccontext Project-1-Name` | Restrict Claude to only Project-1-Name files |
 | **Project Map** | `/projectcontext` | See full project tree with topics |
 | **Token Status** | `/tokenstatus` | Live token usage + savings bar |
 | **Remember Facts** | `/remember <fact>` | Persist a fact to CLAUDE.md |
@@ -119,14 +119,14 @@ Open Claude Code in your project and run these 3 commands once:
 This creates a `.claudeignore` file with smart defaults — ignores node_modules, dist, lock files, .env, media files, etc.
 
 ```
-/topiccontext create hoto
+/topiccontext create Project-1-Name
 ```
-This walks you through mapping your HOTO-related files. Claude will scan the project and you pick which files/folders belong to this topic.
+This walks you through mapping your Project-1-Name-related files. Claude will scan the project and you pick which files/folders belong to this topic.
 
 ```
-/usetopiccontext hoto
+/usetopiccontext Project-1-Name
 ```
-Now Claude only reads files from the HOTO context. Run this at the start of each session when working on HOTO.
+Now Claude only reads files from the Project-1-Name context. Run this at the start of each session when working on Project-1-Name.
 
 ---
 
@@ -167,30 +167,30 @@ Use this when you're working on a specific file and don't want Claude pulling in
 ### `/topiccontext` — Define Feature Areas
 
 ```
-/topiccontext create hoto           Interactive setup — pick your files
-/topiccontext create pcc            Create another topic
+/topiccontext create Project-1-Name           Interactive setup — pick your files
+/topiccontext create Project-2-Name            Create another topic
 /topiccontext list                  See all your saved topics
-/topiccontext show hoto             See which files are in hoto
-/topiccontext delete hoto           Remove a topic
+/topiccontext show Project-1-Name             See which files are in Project-1-Name
+/topiccontext delete Project-1-Name           Remove a topic
 ```
 
 **How create works:**
 1. Claude scans your project and shows a numbered file list
-2. You type numbers, ranges (`1-10`), or folder prefixes (`src/hoto`)
-3. The mapping is saved to `.topiccontext/hoto.json`
-4. Next session, just run `/usetopiccontext hoto`
+2. You type numbers, ranges (`1-10`), or folder prefixes (`src/Project-1-Name`)
+3. The mapping is saved to `.topiccontext/Project-1-Name.json`
+4. Next session, just run `/usetopiccontext Project-1-Name`
 
-**Example `.topiccontext/hoto.json`:**
+**Example `.topiccontext/Project-1-Name.json`:**
 ```json
 {
-  "topic": "hoto",
-  "description": "HOTO handover to operations flow",
-  "entry_point": "src/hoto/index.ts",
+  "topic": "Project-1-Name",
+  "description": "Project-1-Name handover to operations flow",
+  "entry_point": "src/Project-1-Name/index.ts",
   "files": [
-    "src/hoto/",
-    "api/hoto-routes.ts",
-    "utils/hoto-helpers.ts",
-    "types/hoto.types.ts"
+    "src/Project-1-Name/",
+    "api/Project-1-Name-routes.ts",
+    "utils/Project-1-Name-helpers.ts",
+    "types/Project-1-Name.types.ts"
   ]
 }
 ```
@@ -200,8 +200,8 @@ Use this when you're working on a specific file and don't want Claude pulling in
 ### `/usetopiccontext` — Activate a Topic Scope
 
 ```
-/usetopiccontext hoto           Restrict to hoto files only
-/usetopiccontext pcc            Switch to pcc files
+/usetopiccontext Project-1-Name           Restrict to Project-1-Name files only
+/usetopiccontext Project-2-Name            Switch to Project-2-Name files
 /usetopiccontext off            Remove all topic restrictions
 ```
 
@@ -236,7 +236,7 @@ Example output:
   ── Restrictions ────────────────────────────────────
   .claudeignore: 34 patterns → 89 files skipped
                  saved ~48.2k tokens
-  Topic scope:   'hoto' (HOTO handover flow)
+  Topic scope:   'Project-1-Name' (Project-1-Name handover flow)
                  18 files, ~6.1k tokens
                  saved ~28.0k tokens vs full project
 
@@ -288,22 +288,22 @@ Removes all active restrictions for this session (file pin, topic scope). The `.
 ## Typical Daily Workflow
 
 ```
-# Start of session — working on HOTO feature
-/usetopiccontext hoto
+# Start of session — working on Project-1-Name feature
+/usetopiccontext Project-1-Name
 /tokenstatus
 
-# Claude now only reads hoto files
+# Claude now only reads Project-1-Name files
 # ... do your work ...
 
-# Need to check a config file outside hoto
+# Need to check a config file outside Project-1-Name
 /clearcontext
 /filecontext config/database.ts
 
-# Done with config, back to hoto
-/usetopiccontext hoto
+# Done with config, back to Project-1-Name
+/usetopiccontext Project-1-Name
 
 # End of session — save something important
-/remember HOTO flow requires approval step before handover
+/remember Project-1-Name flow requires approval step before handover
 ```
 
 ---
@@ -327,8 +327,8 @@ Removes all active restrictions for this session (file pin, topic scope). The `.
 your-project/                           ← your project (created by the skill)
 ├── .claudeignore                      ← your project's ignore list
 ├── .topiccontext/
-│   ├── hoto.json                      ← hoto topic definition
-│   └── pcc.json                       ← pcc topic definition
+│   ├── Project-1-Name.json                      ← Project-1-Name topic definition
+│   └── Project-2-Name.json                       ← Project-2-Name topic definition
 └── CLAUDE.md                          ← project memory (Claude reads every session)
 ```
 

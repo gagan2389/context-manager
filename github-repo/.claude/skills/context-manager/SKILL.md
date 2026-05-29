@@ -99,7 +99,7 @@ If it exists, load all patterns and NEVER read matching files — even if not ex
 ```json
 {
   "topic": "feature-a",
-  "description": "HOTO flow — handover to operations",
+  "description": "Project-1-Name flow — handover to operations",
   "created_at": "2025-01-01T00:00:00Z",
   "entry_point": "src/feature-a/index.ts",
   "files": [

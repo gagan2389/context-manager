@@ -74,6 +74,6 @@ Without context-manager:
 
 With context-manager:
   .claudeignore applied:  -10,000 tokens saved
-  /usetopiccontext hoto:  restrict to 20 files = ~8,000 tokens
+  /usetopiccontext Project-1-Name:  restrict to 20 files = ~8,000 tokens
   Net context needed:     ~8,000 tokens (84% reduction!)
 ```

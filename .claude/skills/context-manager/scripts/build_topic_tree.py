@@ -70,7 +70,7 @@ def interactive_select(entries):
     print("You can enter:")
     print("  • Numbers: 1 5 12")
     print("  • Ranges: 1-10")
-    print("  • Folder prefix: src/hoto (selects all files under it)")
+    print("  • Folder prefix: src/Project-1-Name (selects all files under it)")
     print("  • 'all' to include everything")
     print("  • 'done' when finished")
     print("=" * 60)
@@ -148,7 +148,7 @@ def save_topic(project_root, topic_name, description, selected_files, entry_poin
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 build_topic_tree.py <topic-name>")
-        print("Example: python3 build_topic_tree.py hoto")
+        print("Example: python3 build_topic_tree.py Project-1-Name")
         sys.exit(1)
 
     topic_name = sys.argv[1].lower().strip()
@@ -159,7 +159,7 @@ def main():
     print(f"   Project root: {project_root}\n")
 
     # Gather description
-    description = input(f"Short description for '{topic_name}' (e.g. 'HOTO handover flow'): ").strip()
+    description = input(f"Short description for '{topic_name}' (e.g. 'Project-1-Name handover flow'): ").strip()
     if not description:
         description = f"{topic_name} context"
 

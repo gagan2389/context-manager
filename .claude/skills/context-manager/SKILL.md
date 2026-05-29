@@ -6,7 +6,7 @@ description: >
   /usetopiccontext, /projectcontext, /tokenstatus, /clearcontext, /remember,
   /scope, /summarize. Also trigger automatically when the user mentions "too
   many tokens", "context too large", "only look at X files", "ignore this
-  file", "stay in hoto context", "stay in pcc context", or any topic-scoping
+  file", "stay in Project-1-Name context", "stay in Project-2-Name context", or any topic-scoping
   request. This skill manages .claudeignore, .topiccontext/ JSON trees, and
   session-level file restrictions to minimize token usage.
 invocation: slash_command
@@ -98,15 +98,15 @@ If it exists, load all patterns and NEVER read matching files — even if not ex
 `.topiccontext/<name>.json`:
 ```json
 {
-  "topic": "hoto",
-  "description": "HOTO flow — handover to operations",
+  "topic": "Project-1-Name",
+  "description": "Project-1-Name flow — handover to operations",
   "created_at": "2025-01-01T00:00:00Z",
-  "entry_point": "src/hoto/index.ts",
+  "entry_point": "src/Project-1-Name/index.ts",
   "files": [
-    "src/hoto/",
-    "api/hoto-routes.ts",
-    "utils/hoto-helpers.ts",
-    "types/hoto.types.ts"
+    "src/Project-1-Name/",
+    "api/Project-1-Name-routes.ts",
+    "utils/Project-1-Name-helpers.ts",
+    "types/Project-1-Name.types.ts"
   ],
   "excluded_patterns": []
 }
