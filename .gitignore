@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Don't commit user-specific topic contexts or ignore files
+# (these are project-level, users create their own)
+.topiccontext/
+.claudeignore
+
+# But DO commit the template
+!.claude/skills/context-manager/assets/.claudeignore.template
