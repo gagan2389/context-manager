@@ -45,7 +45,7 @@
 **Step 1** — Clone or download this repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/context-manager.git
+git clone https://github.com/gagan2389/context-manager.git
 cd context-manager
 ```
 
