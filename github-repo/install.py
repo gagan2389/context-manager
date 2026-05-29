@@ -121,7 +121,7 @@ def install():
     print("                      /usetopiccontext | /tokenstatus | /remember")
     print("                      /scope | /clearcontext")
     print()
-    print(f"  Docs: https://github.com/YOUR_USERNAME/{SKILL_NAME}")
+    print(f"  Docs: https://github.com/gagan2389/{SKILL_NAME}")
     print()
 
 def uninstall():
